@@ -1,0 +1,51 @@
+.card {
+  position: relative;
+  width: 18rem;
+  height: 18rem;
+  border-radius: 1.5rem;
+  overflow: hidden;
+}
+
+.card img {
+  width: 100%;
+  height: auto;
+}
+
+.name {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: fit-content;
+  text-align: center;
+  padding: 1.6rem;
+  background: rgba(0, 0, 0, 0.65);
+}
+
+.name span {
+  font-size: 1.4rem;
+  font-weight: 400;
+  color: #f8f9fa;
+}
+
+.icon {
+  background: url("../../../assets/img/CreatorCollabSeries.a438429c.png");
+  background-position: 50%;
+  background-size: cover;
+  border: 1px solid #1be2e5;
+}
+
+.epic {
+  background: radial-gradient(circle, #9d19ff, #4c07a6);
+  border: 1px solid #845ef7;
+}
+
+.rare {
+  background: radial-gradient(circle, #2cc0ff, #143877);
+  border: 1px solid #339af0;
+}
+
+.uncommon {
+  background: radial-gradient(circle, #30ce00, #005800);
+  border: 1px solid #51cf66;
+}
