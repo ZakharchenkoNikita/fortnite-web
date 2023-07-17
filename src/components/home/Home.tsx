@@ -1,5 +1,5 @@
 import Container from "../UI/Container";
-import HomeCard from "../UI/HomeCard/HomeCard";
+import HomeCard from "./card/HomeCard";
 
 import LatestCosmetics from "./cosmetics/LatestCosmetics";
 
