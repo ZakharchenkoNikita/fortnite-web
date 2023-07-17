@@ -3,6 +3,8 @@ import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import RootLayout from "./pages/Root";
 import HomePage from "./pages/Home";
 import ErrorPage from "./pages/Error";
+import CosmeticsPage from "./pages/Cosmetics";
+import CosmeticDetailPage from "./pages/CosmeticDetail";
 
 const router = createBrowserRouter([
   {
@@ -10,7 +12,17 @@ const router = createBrowserRouter([
     element: <RootLayout />,
     id: "root",
     errorElement: <ErrorPage />,
-    children: [{ index: true, element: <HomePage /> }],
+    children: [
+      { index: true, element: <HomePage /> },
+      {
+        path: "cosmetics",
+        element: <CosmeticsPage />,
+      },
+      {
+        path: "cosmetics/:cosmeticId",
+        element: <CosmeticDetailPage />,
+      },
+    ],
   },
 ]);
 

@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import styles from "./LatestCosmetics.module.css";
-import Cosmetic from "./Cosmetic";
+import Cosmetic from "./CosmeticCard";
 
 interface Item {
   id: string;

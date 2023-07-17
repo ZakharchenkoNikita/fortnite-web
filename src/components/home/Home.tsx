@@ -1,16 +1,16 @@
-import Container from "../UI/Container";
+import { Fragment } from "react";
 import HomeCard from "./card/HomeCard";
 
 import LatestCosmetics from "./cosmetics/LatestCosmetics";
 
 const Home = () => {
   return (
-    <Container>
+    <Fragment>
       <HomeCard
         title="Latest Cosmetics"
         description="Take a look at the new Fortnite cosmetics."
         activeLink={true}
-        linkTo="/"
+        linkTo="/cosmetics"
         content={<LatestCosmetics />}
       />
 
@@ -18,7 +18,7 @@ const Home = () => {
         title="In-Game News"
         description="Take a look at the in-game news section."
       />
-    </Container>
+    </Fragment>
   );
 };
 
