@@ -1,0 +1,16 @@
+.content {
+  height: auto;
+  overflow: auto;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-around;
+  gap: 1.2rem 0.6rem;
+  padding: 2.4rem;
+}
+
+.card {
+  background-color: red;
+  width: 18rem;
+  height: 18rem;
+}

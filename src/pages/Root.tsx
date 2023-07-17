@@ -1,7 +1,7 @@
 import React, { Fragment } from "react";
 import { Outlet } from "react-router-dom";
 
-import MainNavigation from "../components/Layouts/MainNavigation";
+import MainNavigation from "../components/layouts/MainNavigation";
 
 function RootLayout() {
   return (
