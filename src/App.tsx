@@ -3,7 +3,7 @@ import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import RootLayout from "./pages/Root";
 import HomePage from "./pages/Home";
 import ErrorPage from "./pages/Error";
-import CosmeticsPage from "./pages/Cosmetics";
+import CosmeticsPage, { loader as cosmeticsLoader } from "./pages/Cosmetics";
 import CosmeticDetailPage from "./pages/CosmeticDetail";
 
 const router = createBrowserRouter([
@@ -13,10 +13,11 @@ const router = createBrowserRouter([
     id: "root",
     errorElement: <ErrorPage />,
     children: [
-      { index: true, element: <HomePage /> },
+      { index: true, element: <HomePage />, loader: cosmeticsLoader },
       {
         path: "cosmetics",
         element: <CosmeticsPage />,
+        loader: cosmeticsLoader,
       },
       {
         path: "cosmetics/:cosmeticId",

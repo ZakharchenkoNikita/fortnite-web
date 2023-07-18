@@ -9,7 +9,7 @@ const MainNavigation = () => {
         <Logo className={styles.logo} />
       </Link>
 
-      <nav className={styles.nav}>
+      {/* <nav className={styles.nav}>
         <NavLink to="/item-shop" className={styles.navLink}>
           Item Shop
         </NavLink>
@@ -19,6 +19,41 @@ const MainNavigation = () => {
         <NavLink to="/cosmetics" className={styles.navLink}>
           Cosmetics
         </NavLink>
+      </nav> */}
+
+      <nav>
+        <ul className={styles.list}>
+          <li>
+            <NavLink
+              to="/item-shop"
+              className={({ isActive }) =>
+                isActive ? styles.active : styles.navLink
+              }
+            >
+              Item Shop
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              to="/map"
+              className={({ isActive }) =>
+                isActive ? styles.active : styles.navLink
+              }
+            >
+              Map
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              to="/cosmetics"
+              className={({ isActive }) =>
+                isActive ? styles.active : styles.navLink
+              }
+            >
+              Cosmetics
+            </NavLink>
+          </li>
+        </ul>
       </nav>
 
       <Link to="/profile" className={styles.navLink}>

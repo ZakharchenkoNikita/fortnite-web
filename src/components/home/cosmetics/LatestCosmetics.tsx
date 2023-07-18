@@ -1,53 +1,25 @@
-import { useEffect, useState } from "react";
-import axios from "axios";
+import { FC } from "react";
 import styles from "./LatestCosmetics.module.css";
 import Cosmetic from "./CosmeticCard";
+import { Item } from "../../../types/Item";
 
-interface Item {
-  id: string;
-  name: string;
-  description: string;
-  images: {
-    icon: string;
-    smallIcon: string;
-  };
-  type: {
-    displayValue: string;
-    value: string;
-  };
-  rarity: {
-    value: string;
-    displayValue: string;
-  };
-  added: string;
+interface LatestCosmeticsProps {
+  cosmetics: Item[];
+  numberOfItems: number;
 }
 
-const defaultCosmetics: Item[] = [];
-
-const LatestCosmetics = () => {
-  const [cosmetics, setCosmetics] = useState<Item[]>(defaultCosmetics);
-
-  useEffect(() => {
-    axios
-      .get("https://fortnite-api.com/v2/cosmetics/br/new")
-      .then((response) => {
-        setCosmetics(response.data.data.items);
-      });
-  }, []);
-
-  console.log(cosmetics);
-
+const LatestCosmetics: FC<LatestCosmeticsProps> = ({ cosmetics, numberOfItems }) => {
   return (
     <div className={styles.content}>
       {cosmetics
-        // .sort((a, b) => {
-        //   return (
-        //     new Date(b.added).setHours(0, 0, 0, 0) -
-        //     new Date(a.added).setHours(0, 0, 0, 0)
-        //   );
-        // })
-        .filter((_, index) => index < 12)
-        .map((cosmetic) => {
+        .sort((a, b) => {
+          return (
+            new Date(b.added).setHours(0, 0, 0, 0) -
+            new Date(a.added).setHours(0, 0, 0, 0)
+          );
+        })
+        .filter((_, index) => index < numberOfItems)
+        .map((cosmetic: Item) => {
           return (
             <Cosmetic
               key={cosmetic.id}

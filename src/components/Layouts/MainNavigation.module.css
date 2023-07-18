@@ -16,13 +16,24 @@
   height: 5rem;
 }
 
-.nav {
+.list {
   display: flex;
   gap: 2rem;
+  list-style: none;
 }
 
 .navLink {
   color: #f8f9fa;
   text-decoration: none;
   font-size: 1.5rem;
+}
+
+.active {
+  color: #4dabf7;
+  text-decoration: none;
+  font-size: 1.5rem;
+}
+
+.navLink:hover {
+  color: #4dabf7;
 }
