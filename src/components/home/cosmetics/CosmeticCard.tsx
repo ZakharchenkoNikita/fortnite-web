@@ -13,7 +13,7 @@ interface CosmeticProps {
 const Cosmetic: FC<CosmeticProps> = ({ id, name, icon, rarity }) => {
   return (
     <div className={`${styles.card} ${styles[`${rarity}`]}`}>
-      <Link to={`/${id}`}>
+      <Link to={`/cosmetics/${id}`}>
         <img src={icon} alt={name} />
         <div className={styles.name}>
           <span>{name}</span>

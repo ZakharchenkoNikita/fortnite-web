@@ -4,7 +4,9 @@ import RootLayout from "./pages/Root";
 import HomePage from "./pages/Home";
 import ErrorPage from "./pages/Error";
 import CosmeticsPage, { loader as cosmeticsLoader } from "./pages/Cosmetics";
-import CosmeticDetailPage from "./pages/CosmeticDetail";
+import CosmeticDetailPage, {
+  loader as cosmeticDetailLoader,
+} from "./pages/CosmeticDetail";
 
 const router = createBrowserRouter([
   {
@@ -20,8 +22,9 @@ const router = createBrowserRouter([
         loader: cosmeticsLoader,
       },
       {
-        path: ":cosmeticId",
+        path: "cosmetics/:cosmeticId",
         element: <CosmeticDetailPage />,
+        loader: cosmeticDetailLoader,
       },
     ],
   },

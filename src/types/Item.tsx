@@ -16,4 +16,14 @@ export interface Item {
     displayValue: string;
   };
   added: string;
+  series: {
+    value: string;
+    image: string;
+  };
+  introduction: {
+    chapter: string;
+    season: string;
+    text: string;
+  };
+  shopHistory: string[];
 }
