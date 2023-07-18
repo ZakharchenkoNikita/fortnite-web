@@ -10,7 +10,7 @@ interface CosmeticProps {
   rarity: string;
 }
 
-const Cosmetic: FC<CosmeticProps> = ({ id, name, icon, rarity }) => {
+const CosmeticCard: FC<CosmeticProps> = ({ id, name, icon, rarity }) => {
   return (
     <div className={`${styles.card} ${styles[`${rarity}`]}`}>
       <Link to={`/cosmetics/${id}`}>
@@ -23,4 +23,4 @@ const Cosmetic: FC<CosmeticProps> = ({ id, name, icon, rarity }) => {
   );
 };
 
-export default Cosmetic;
+export default CosmeticCard;

@@ -2,7 +2,7 @@ import { FC } from "react";
 import { useLocation } from "react-router-dom";
 
 import styles from "./LatestCosmetics.module.css";
-import Cosmetic from "./CosmeticCard";
+import CosmeticCard from "./CosmeticCard";
 import { Item } from "../../../types/Item";
 
 interface LatestCosmeticsProps {
@@ -28,7 +28,7 @@ const LatestCosmetics: FC<LatestCosmeticsProps> = ({
         .filter((_, index) => index < numberOfItems)
         .map((cosmetic: Item) => {
           return (
-            <Cosmetic
+            <CosmeticCard
               key={cosmetic.id}
               id={cosmetic.id}
               name={cosmetic.name}
