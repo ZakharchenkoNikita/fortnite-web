@@ -20,7 +20,7 @@ const router = createBrowserRouter([
         loader: cosmeticsLoader,
       },
       {
-        path: "cosmetics/:cosmeticId",
+        path: ":cosmeticId",
         element: <CosmeticDetailPage />,
       },
     ],

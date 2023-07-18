@@ -1,4 +1,6 @@
 import { FC } from "react";
+import { useLocation } from "react-router-dom";
+
 import styles from "./LatestCosmetics.module.css";
 import Cosmetic from "./CosmeticCard";
 import { Item } from "../../../types/Item";
@@ -8,7 +10,12 @@ interface LatestCosmeticsProps {
   numberOfItems: number;
 }
 
-const LatestCosmetics: FC<LatestCosmeticsProps> = ({ cosmetics, numberOfItems }) => {
+const LatestCosmetics: FC<LatestCosmeticsProps> = ({
+  cosmetics,
+  numberOfItems,
+}) => {
+  const location = useLocation();
+
   return (
     <div className={styles.content}>
       {cosmetics

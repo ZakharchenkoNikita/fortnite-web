@@ -5,6 +5,7 @@ export interface Item {
   images: {
     icon: string;
     smallIcon: string;
+    featured: string;
   };
   type: {
     displayValue: string;

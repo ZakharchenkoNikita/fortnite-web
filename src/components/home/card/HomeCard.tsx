@@ -1,6 +1,6 @@
-import { Link } from "react-router-dom";
 import { Fragment, FC } from "react";
 import styles from "./HomeCard.module.css";
+import CardTitle from "./CardTitle";
 
 interface HomeCardProps {
   title: string;
@@ -17,22 +17,15 @@ const HomeCard: FC<HomeCardProps> = ({
   activeLink,
   linkTo,
 }) => {
-  const linkContent = activeLink && (
-    <Link to={linkTo || "/"} className={styles.link}>
-      View more &rarr;
-    </Link>
-  );
-
   return (
     <Fragment>
       <div className={styles.card}>
-        <div className={styles.container}>
-          <div className={styles.header}>
-            <h1>{title}</h1>
-            <p>{description}</p>
-          </div>
-          {linkContent}
-        </div>
+        <CardTitle
+          title={title}
+          description={description}
+          activeLink={activeLink}
+          linkTo={linkTo}
+        />
         <div className={styles.content}>{content}</div>
       </div>
     </Fragment>
