@@ -25,5 +25,17 @@ export interface Item {
     season: string;
     text: string;
   };
+  variants: {
+    channel: string;
+    type: string;
+    options: [
+      {
+        tag: string;
+        name: string;
+        image: string;
+      }
+    ];
+  };
   shopHistory: string[];
+  gameplayTags: string[];
 }

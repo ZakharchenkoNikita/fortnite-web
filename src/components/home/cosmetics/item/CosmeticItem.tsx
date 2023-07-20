@@ -1,7 +1,8 @@
-import { FC } from "react";
+import { FC, Fragment } from "react";
 import { Item } from "../../../../types/Item";
 import styles from "./CosmeticItem.module.css";
-import CosmeticCard from "../CosmeticCard";
+import ItemTags from "./ItemTags";
+import ItemHistory from "./ItemHistory";
 
 interface CosmeticItemProps {
   cosmetic: Item;
@@ -9,33 +10,44 @@ interface CosmeticItemProps {
 
 const CosmeticItem: FC<CosmeticItemProps> = ({ cosmetic }) => {
   return (
-    <div className={styles.cosmetic}>
-      <div className={`${styles.card} ${styles[`${cosmetic.rarity.value}`]}`}>
-        <img
-          src={cosmetic.images.featured || cosmetic.images.icon}
-          alt={cosmetic.name}
-        />
-      </div>
-      <div className={styles.description}>
-        <h1>{cosmetic.name}</h1>
-        <strong>{cosmetic.id}</strong>
+    <Fragment>
+      <div className={styles.cosmetic}>
+        <div className={`${styles.card} ${styles[`${cosmetic.rarity.value}`]}`}>
+          <img
+            src={cosmetic.images.featured || cosmetic.images.icon}
+            alt={cosmetic.name}
+          />
+        </div>
+        <div className={styles.description}>
+          <h1>{cosmetic.name}</h1>
+          <strong>{cosmetic.id}</strong>
 
-        <div>
-          <span>{cosmetic.type.value}</span>
-          <strong>&#9679;</strong>
-          <span>{cosmetic.rarity.value}</span>
+          <div>
+            <span>{cosmetic.type.value}</span>
+            <strong>&#9679;</strong>
+            <span>{cosmetic.rarity.displayValue}</span>
+          </div>
+
+          <p>
+            {cosmetic.description} <br />
+            {cosmetic.introduction.text}
+          </p>
         </div>
 
-        <p>
-          {cosmetic.description} <br />
-          {cosmetic.introduction.text}
-        </p>
+        <div className={styles.actions}>
+          <button>Add to Wishlist</button>
+        </div>
       </div>
 
-      <div className={styles.actions}>
-        <button>Add to Wishlist</button>
+      <div className={styles.info}>
+        <ItemTags tags={cosmetic.gameplayTags} />
+        <ItemHistory
+          name={cosmetic.name}
+          added={cosmetic.added}
+          shopHistory={cosmetic.shopHistory}
+        />
       </div>
-    </div>
+    </Fragment>
   );
 };
 

@@ -1,0 +1,23 @@
+.element {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  column-gap: 2rem;
+}
+
+.element strong {
+  color: #4dabf7;
+  font-weight: 400;
+  text-transform: uppercase;
+  font-size: 1.2rem;
+}
+
+.element span {
+  font-size: 1.2rem;
+}
+
+.border {
+  flex-grow: 1;
+  height: 1px;
+  background-color: #495057;
+}
