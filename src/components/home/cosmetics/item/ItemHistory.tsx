@@ -2,12 +2,7 @@ import { FC, Fragment } from "react";
 import styles from "./ItemHistory.module.css";
 import HistoryElement from "./HistoryElement";
 
-import {
-  getFirstRelease,
-  getItemOccurrences,
-  getLastSeen,
-  getItemHistory,
-} from "../../../../helpers/itemHistory";
+import { getHistory } from "../../../../helpers/itemHistory";
 
 interface ItemHistoryProps {
   name: string;
@@ -16,11 +11,10 @@ interface ItemHistoryProps {
 }
 
 const ItemHistory: FC<ItemHistoryProps> = ({ name, added, shopHistory }) => {
-  const firstRelease = getFirstRelease(added);
-  const occurrences = getItemOccurrences(shopHistory);
-  const lastSeen = getLastSeen(shopHistory);
-  const itemHistory = getItemHistory(shopHistory);
-
+  const { firstRelease, occurrences, lastSeen, updatedHistory } = getHistory(
+    added,
+    shopHistory
+  );
   let content;
 
   if (shopHistory === null) {
@@ -35,7 +29,7 @@ const ItemHistory: FC<ItemHistoryProps> = ({ name, added, shopHistory }) => {
         <div className={styles.border}></div>
 
         <div className={styles.history}>
-          {itemHistory.map((history, index) => {
+          {updatedHistory.map((history, index) => {
             return (
               <HistoryElement
                 key={index}

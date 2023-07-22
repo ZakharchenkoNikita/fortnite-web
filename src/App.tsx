@@ -2,7 +2,7 @@ import { RouterProvider, createBrowserRouter } from "react-router-dom";
 
 import RootLayout from "./pages/Root";
 import HomePage from "./pages/Home";
-import ErrorPage from "./pages/Error";
+import ErrorPage from "./pages/ErrorPage";
 import CosmeticsPage, { loader as cosmeticsLoader } from "./pages/Cosmetics";
 import CosmeticDetailPage, {
   loader as cosmeticDetailLoader,

@@ -1,0 +1,29 @@
+.error {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+}
+
+.error h1 {
+  font-size: 4rem;
+}
+
+.error p {
+  font-size: 2rem;
+}
+
+.link {
+  text-decoration: none;
+  font-size: 1.2rem;
+  background-color: #1c7ed6;
+  color: #fff;
+  padding: 1.6rem;
+  border-radius: 1rem;
+  transition: all 0.3s;
+}
+
+.link:hover {
+  background-color: #228be6;
+}

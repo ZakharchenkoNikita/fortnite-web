@@ -1,4 +1,4 @@
-import { useLoaderData, defer, Await } from "react-router-dom";
+import { useLoaderData, defer, Await, json } from "react-router-dom";
 import { Suspense } from "react";
 import CosmeticItem from "../components/home/cosmetics/item/CosmeticItem";
 
@@ -21,7 +21,14 @@ const loadItem = async (cosmeticId: string) => {
     "https://fortnite-api.com/v2/cosmetics/br/" + cosmeticId
   );
 
-  if (response.ok) {
+  if (!response.ok) {
+    throw json(
+      { message: "Could not fetch details for selected cosmetic." },
+      {
+        status: 400,
+      }
+    );
+  } else {
     const resData = await response.json();
     return resData.data;
   }

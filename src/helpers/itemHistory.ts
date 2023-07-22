@@ -21,7 +21,7 @@ const convertToDate = (date: Date): string => {
   return `${month} ${day}, ${year}`;
 };
 
-const getDayAgo = (date: Date) => {
+const getDayAgo = (date: Date): string => {
   const daySeconds = 86400;
 
   const interval = Math.floor((Date.now() - date.getTime()) / 1000);
@@ -36,7 +36,7 @@ const getDayAgo = (date: Date) => {
   }
 };
 
-export const getFirstRelease = (added: string) => {
+const getFirstRelease = (added: string): string => {
   const date = new Date(added);
   const milliseconds = date.getTime();
   const addedDate = new Date(milliseconds);
@@ -44,7 +44,7 @@ export const getFirstRelease = (added: string) => {
   return convertToDate(addedDate);
 };
 
-export const getItemOccurrences = (shopHistory: string[]): string => {
+const getItemOccurrences = (shopHistory: string[]): string => {
   if (shopHistory !== null) {
     return shopHistory.length.toString();
   }
@@ -52,7 +52,7 @@ export const getItemOccurrences = (shopHistory: string[]): string => {
   return "";
 };
 
-export const getLastSeen = (shopHistory: string[]): string => {
+const getLastSeen = (shopHistory: string[]): string => {
   if (shopHistory !== null) {
     const lastSeen = shopHistory.at(-1)!.toString();
     const date = new Date(lastSeen);
@@ -63,14 +63,14 @@ export const getLastSeen = (shopHistory: string[]): string => {
   return "";
 };
 
-export interface Testst {
+interface ItemHistory {
   date: string;
   days: string;
 }
 
-export const getItemHistory = (shopHistory: string[]) => {
+const getItemHistory = (shopHistory: string[]) => {
   if (shopHistory !== null) {
-    let newShopHistory: Testst[];
+    let newShopHistory: ItemHistory[];
 
     newShopHistory = shopHistory.map((date) => {
       const historyDate = new Date(date);
@@ -85,4 +85,13 @@ export const getItemHistory = (shopHistory: string[]) => {
   }
 
   return [{ date: "", days: "" }];
+};
+
+export const getHistory = (added: string, shopHistory: string[]) => {
+  return {
+    firstRelease: getFirstRelease(added),
+    lastSeen: getLastSeen(shopHistory),
+    occurrences: getItemOccurrences(shopHistory),
+    updatedHistory: getItemHistory(shopHistory),
+  };
 };
