@@ -1,0 +1,15 @@
+.content h3 {
+  font-size: 2rem;
+  font-weight: 400;
+}
+
+.styles {
+  display: flex;
+  flex-direction: column;
+  gap: 2.4rem;
+}
+
+.cards {
+  display: flex;
+  gap: 1.2rem;
+}

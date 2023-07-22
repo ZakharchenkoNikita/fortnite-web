@@ -26,7 +26,7 @@ const ItemHistory: FC<ItemHistoryProps> = ({ name, added, shopHistory }) => {
         <HistoryElement name="Occurrences" value={occurrences} />
         <HistoryElement name="Last Seen" value={lastSeen} />
 
-        <div className={styles.border}></div>
+        <div className="border"></div>
 
         <div className={styles.history}>
           {updatedHistory.map((history, index) => {

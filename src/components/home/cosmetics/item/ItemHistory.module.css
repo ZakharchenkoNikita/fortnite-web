@@ -4,12 +4,6 @@
   gap: 2rem;
 }
 
-.border {
-  flex-grow: 1;
-  height: 1px;
-  background-color: #495057;
-}
-
 .history {
   display: flex;
   flex-direction: column;

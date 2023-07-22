@@ -3,16 +3,25 @@ import { Item } from "../../../../types/Item";
 import styles from "./CosmeticItem.module.css";
 import ItemTags from "./ItemTags";
 import ItemHistory from "./ItemHistory";
+import ItemStyles from "./ItemStyles";
 
 interface CosmeticItemProps {
   cosmetic: Item;
 }
 
 const CosmeticItem: FC<CosmeticItemProps> = ({ cosmetic }) => {
+  let itemStyles;
+
+  if (cosmetic.variants !== null) {
+    itemStyles = (
+      <ItemStyles variants={cosmetic.variants} rarity={cosmetic.rarity.value} />
+    );
+  }
+
   return (
     <Fragment>
       <div className={styles.cosmetic}>
-        <div className={`${styles.card} ${styles[`${cosmetic.rarity.value}`]}`}>
+        <div className={`${styles.card} ${cosmetic.rarity.value}`}>
           <img
             src={cosmetic.images.featured || cosmetic.images.icon}
             alt={cosmetic.name}
@@ -41,11 +50,15 @@ const CosmeticItem: FC<CosmeticItemProps> = ({ cosmetic }) => {
 
       <div className={styles.info}>
         <ItemTags tags={cosmetic.gameplayTags} />
-        <ItemHistory
-          name={cosmetic.name}
-          added={cosmetic.added}
-          shopHistory={cosmetic.shopHistory}
-        />
+        <div>
+          {itemStyles}
+
+          <ItemHistory
+            name={cosmetic.name}
+            added={cosmetic.added}
+            shopHistory={cosmetic.shopHistory}
+          />
+        </div>
       </div>
     </Fragment>
   );
