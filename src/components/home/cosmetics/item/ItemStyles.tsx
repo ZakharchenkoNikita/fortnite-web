@@ -8,8 +8,6 @@ interface ItemStylesProps {
 }
 
 const ItemStyles: FC<ItemStylesProps> = ({ variants, rarity }) => {
-  const test = variants.map((variant: any) => variant.options.length);
-
   return (
     <div className={styles.content}>
       <div className={styles.styles}>

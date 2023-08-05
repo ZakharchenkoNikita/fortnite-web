@@ -39,7 +39,7 @@ const CosmeticItem: FC<CosmeticItemProps> = ({ cosmetic }) => {
 
           <p>
             {cosmetic.description} <br />
-            {cosmetic.introduction.text}
+            {"" && cosmetic.introduction.text}
           </p>
         </div>
 

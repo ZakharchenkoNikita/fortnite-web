@@ -37,8 +37,25 @@ async function loadCosmetics() {
   }
 }
 
+const loadNews = async () => {
+  const response = await fetch("https://fortnite-api.com/v2/news");
+
+  if (response.ok) {
+    const resData = await response.json();
+    return resData.data.br.motds;
+  } else {
+    throw json(
+      { message: "Could not fetch news." },
+      {
+        status: 400,
+      }
+    );
+  }
+};
+
 export const loader = () => {
   return defer({
     cosmetics: loadCosmetics(),
+    news: loadNews(),
   });
 };

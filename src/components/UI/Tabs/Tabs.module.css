@@ -1,0 +1,10 @@
+.container {
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  gap: 1.6rem;
+}
+
+.tabs {
+  display: grid;
+  align-content: space-between;
+}

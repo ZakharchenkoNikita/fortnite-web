@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { useLocation } from "react-router-dom";
+// import { useLocation } from "react-router-dom";
 
 import styles from "./LatestCosmetics.module.css";
 import CosmeticCard from "./CosmeticCard";
@@ -14,7 +14,7 @@ const LatestCosmetics: FC<LatestCosmeticsProps> = ({
   cosmetics,
   numberOfItems,
 }) => {
-  const location = useLocation();
+  // const location = useLocation();
 
   return (
     <div className={styles.content}>

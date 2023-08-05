@@ -3,11 +3,20 @@ import { Suspense } from "react";
 import Home from "../components/home/Home";
 
 const HomePage = () => {
-  const { cosmetics }: any = useLoaderData();
+  const { cosmetics, news }: any = useLoaderData();
+
   return (
     <Suspense fallback="Loading...">
       <Await resolve={cosmetics}>
-        {(loadedCosmetics) => <Home cosmetics={loadedCosmetics} />}
+        {(loadedCosmetics) => {
+          return (
+            <Await resolve={news}>
+              {(loadedNews) => {
+                return <Home cosmetics={loadedCosmetics} news={loadedNews} />;
+              }}
+            </Await>
+          );
+        }}
       </Await>
     </Suspense>
   );
