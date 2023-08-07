@@ -2,7 +2,7 @@ import { Await, defer, useLoaderData, json } from "react-router-dom";
 import LatestCosmetics from "../components/home/cosmetics/LatestCosmetics";
 import { Suspense } from "react";
 
-const Cosmetics = () => {
+const NewCosmetics = () => {
   const { cosmetics }: any = useLoaderData();
 
   return (
@@ -19,7 +19,7 @@ const Cosmetics = () => {
   );
 };
 
-export default Cosmetics;
+export default NewCosmetics;
 
 async function loadCosmetics() {
   const response = await fetch("https://fortnite-api.com/v2/cosmetics/br/new");

@@ -20,7 +20,7 @@ const Home: FC<HomeProps> = ({ cosmetics, news }) => {
         title="Latest Cosmetics"
         description="Take a look at the new Fortnite cosmetics."
         activeLink={true}
-        linkTo="/cosmetics"
+        linkTo="/latest-cosmetics"
         content={
           <LatestCosmetics
             cosmetics={cosmetics}
