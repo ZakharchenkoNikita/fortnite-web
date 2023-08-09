@@ -9,6 +9,7 @@ import LatestCosmeticsPage, {
 import CosmeticDetailPage, {
   loader as cosmeticDetailLoader,
 } from "./pages/CosmeticDetail";
+import ShopPage, { loader as itemShopLoader } from "./pages/Shop";
 
 const router = createBrowserRouter([
   {
@@ -27,6 +28,11 @@ const router = createBrowserRouter([
         path: "cosmetics/:cosmeticId",
         element: <CosmeticDetailPage />,
         loader: cosmeticDetailLoader,
+      },
+      {
+        path: "item-shop",
+        element: <ShopPage />,
+        loader: itemShopLoader,
       },
     ],
   },

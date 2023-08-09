@@ -17,7 +17,7 @@
   height: auto;
 }
 
-.name {
+.description {
   position: absolute;
   bottom: 0;
   left: 0;
@@ -28,8 +28,26 @@
   background: rgba(0, 0, 0, 0.65);
 }
 
-.name span {
+.description {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.description span {
   font-size: 1.4rem;
   font-weight: 400;
   color: #f8f9fa;
+}
+
+.price {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+}
+
+.price img {
+  height: 1.9rem;
+  width: 1.9rem;
 }

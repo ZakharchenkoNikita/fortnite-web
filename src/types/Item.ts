@@ -39,3 +39,13 @@ export interface Item {
   shopHistory: string[];
   gameplayTags: string[];
 }
+
+
+export interface ShopItem {
+  id: string;
+  name: string;
+  finalPrice: number;
+  icon: string;
+  rarity: string;
+  type: string;
+}

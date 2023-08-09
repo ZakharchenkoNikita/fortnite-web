@@ -17,9 +17,9 @@ const CosmeticDetail = () => {
 export default CosmeticDetail;
 
 const loadItem = async (cosmeticId: string) => {
-  const response = await fetch(
-    "https://fortnite-api.com/v2/cosmetics/br/" + cosmeticId
-  );
+  const url = `${process.env.REACT_APP_API_LOAD_DETAIL_COSMETIC + cosmeticId}`;
+
+  const response = await fetch(url);
 
   if (!response.ok) {
     throw json(
@@ -30,6 +30,7 @@ const loadItem = async (cosmeticId: string) => {
     );
   } else {
     const resData = await response.json();
+
     return resData.data;
   }
 };

@@ -22,7 +22,8 @@ const NewCosmetics = () => {
 export default NewCosmetics;
 
 async function loadCosmetics() {
-  const response = await fetch("https://fortnite-api.com/v2/cosmetics/br/new");
+  const url = `${process.env.REACT_APP_API_LOAD_NEW_COSMETICS}`;
+  const response = await fetch(url);
 
   if (response.ok) {
     const resData = await response.json();
@@ -38,7 +39,9 @@ async function loadCosmetics() {
 }
 
 const loadNews = async () => {
-  const response = await fetch("https://fortnite-api.com/v2/news");
+  const url = `${process.env.REACT_APP_API_LOAD_NEWS}`;
+
+  const response = await fetch(url);
 
   if (response.ok) {
     const resData = await response.json();

@@ -36,7 +36,7 @@ const getDayAgo = (date: Date): string => {
   }
 };
 
-const getFirstRelease = (added: string): string => {
+export const getReleaseDate = (added: string): string => {
   const date = new Date(added);
   const milliseconds = date.getTime();
   const addedDate = new Date(milliseconds);
@@ -89,7 +89,7 @@ const getItemHistory = (shopHistory: string[]) => {
 
 export const getHistory = (added: string, shopHistory: string[]) => {
   return {
-    firstRelease: getFirstRelease(added),
+    firstRelease: getReleaseDate(added),
     lastSeen: getLastSeen(shopHistory),
     occurrences: getItemOccurrences(shopHistory),
     updatedHistory: getItemHistory(shopHistory),
