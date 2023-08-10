@@ -1,7 +1,7 @@
 import { FC } from "react";
 import { Link } from "react-router-dom";
 
-import vbuck from "./../../../assets/img/vbuck.png";
+import vbuck from "./../../assets/img/vbuck.png";
 import styles from "./CosmeticCard.module.css";
 
 interface CosmeticProps {

@@ -1,7 +1,7 @@
 import { FC } from "react";
 import { Shop } from "../../types/Shop";
 import styles from "./ItemShop.module.css";
-import CosmeticCard from "../home/cosmetics/CosmeticCard";
+import CosmeticCard from "../cosmetics/CosmeticCard";
 
 import { getReleaseDate } from "../../helpers/itemHistory";
 import { ShopItem } from "../../types/Item";

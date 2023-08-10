@@ -42,6 +42,13 @@ body {
   border: 1px solid #f68b20;
 }
 
+.starwars {
+  background: url("./assets//img//ColumbusSeries.9993eea7.png");
+  background-position: 50%;
+  background-size: cover;
+  border: 1px solid #ffaf00;
+}
+
 .legendary {
   background: radial-gradient(circle, #ff960e, #851400);
   border: 1px solid #f68b20;

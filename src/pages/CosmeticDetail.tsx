@@ -1,6 +1,6 @@
 import { useLoaderData, defer, Await, json } from "react-router-dom";
 import { Suspense } from "react";
-import CosmeticItem from "../components/home/cosmetics/item/CosmeticItem";
+import CosmeticItem from "../components/cosmetics/item/CosmeticItem";
 
 const CosmeticDetail = () => {
   const { item }: any = useLoaderData();

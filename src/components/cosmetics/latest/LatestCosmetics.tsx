@@ -2,7 +2,7 @@ import { FC } from "react";
 // import { useLocation } from "react-router-dom";
 
 import styles from "./LatestCosmetics.module.css";
-import CosmeticCard from "./CosmeticCard";
+import CosmeticCard from "../CosmeticCard";
 import { Item } from "../../../types/Item";
 
 interface LatestCosmeticsProps {

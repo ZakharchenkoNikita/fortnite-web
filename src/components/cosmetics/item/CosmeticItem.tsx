@@ -1,5 +1,5 @@
 import { FC, Fragment } from "react";
-import { Item } from "../../../../types/Item";
+import { Item } from "../../../types/Item";
 import styles from "./CosmeticItem.module.css";
 import ItemTags from "./ItemTags";
 import ItemHistory from "./ItemHistory";

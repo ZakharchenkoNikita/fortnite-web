@@ -1,6 +1,6 @@
 import { Fragment, FC } from "react";
 import HomeCard from "./card/HomeCard";
-import LatestCosmetics from "./cosmetics/LatestCosmetics";
+import LatestCosmetics from "../cosmetics/latest/LatestCosmetics";
 
 import { Item } from "../../types/Item";
 import { News } from "../../types/News";

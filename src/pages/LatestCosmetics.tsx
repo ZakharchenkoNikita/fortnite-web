@@ -1,5 +1,5 @@
 import { Await, defer, useLoaderData, json } from "react-router-dom";
-import LatestCosmetics from "../components/home/cosmetics/LatestCosmetics";
+import LatestCosmetics from "../components/cosmetics/latest/LatestCosmetics";
 import { Suspense } from "react";
 
 const NewCosmetics = () => {

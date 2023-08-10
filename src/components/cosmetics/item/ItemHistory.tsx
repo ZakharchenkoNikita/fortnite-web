@@ -2,7 +2,7 @@ import { FC, Fragment } from "react";
 import styles from "./ItemHistory.module.css";
 import HistoryElement from "./HistoryElement";
 
-import { getHistory } from "../../../../helpers/itemHistory";
+import { getHistory } from "../../../helpers/itemHistory";
 
 interface ItemHistoryProps {
   name: string;
