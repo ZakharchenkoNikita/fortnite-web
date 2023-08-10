@@ -17,22 +17,21 @@ const CosmeticDetail = () => {
 export default CosmeticDetail;
 
 const loadItem = async (cosmeticId: string) => {
-  const url = `${process.env.REACT_APP_API_LOAD_DETAIL_COSMETIC + cosmeticId}`;
+  const url = `https://fortniteapi.io/v2/items/get?id=${cosmeticId}&lang=en`;
 
-  const response = await fetch(url);
+  const response = await fetch(url, {
+    headers: {
+      Authorization: `${process.env.REACT_APP_API_KEY}`,
+    },
+  });
 
-  if (!response.ok) {
-    throw json(
-      { message: "Could not fetch details for selected cosmetic." },
-      {
-        status: 400,
-      }
-    );
-  } else {
-    const resData = await response.json();
+  const resData = await response.json();
 
-    return resData.data;
+  if (resData.result === false) {
+    throw json({ message: "Could not fetch details for selected cosmetic." });
   }
+
+  return resData.item;
 };
 
 export const loader = async ({ params }: any) => {

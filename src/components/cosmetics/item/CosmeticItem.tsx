@@ -12,16 +12,16 @@ interface CosmeticItemProps {
 const CosmeticItem: FC<CosmeticItemProps> = ({ cosmetic }) => {
   let itemStyles;
 
-  if (cosmetic.variants !== null) {
+  if (cosmetic.styles.length > 0) {
     itemStyles = (
-      <ItemStyles variants={cosmetic.variants} rarity={cosmetic.rarity.value} />
+      <ItemStyles itemStyles={cosmetic.styles} rarity={cosmetic.rarity.id} />
     );
   }
 
   return (
     <Fragment>
       <div className={styles.cosmetic}>
-        <div className={`${styles.card} ${cosmetic.rarity.value}`}>
+        <div className={`${styles.card} ${cosmetic.rarity.id}`}>
           <img
             src={cosmetic.images.featured || cosmetic.images.icon}
             alt={cosmetic.name}
@@ -32,9 +32,9 @@ const CosmeticItem: FC<CosmeticItemProps> = ({ cosmetic }) => {
           <strong>{cosmetic.id}</strong>
 
           <div>
-            <span>{cosmetic.type.value}</span>
+            <span>{cosmetic.type.id}</span>
             <strong>&#9679;</strong>
-            <span>{cosmetic.rarity.displayValue}</span>
+            <span>{cosmetic.rarity.id}</span>
           </div>
 
           <p>
@@ -43,9 +43,9 @@ const CosmeticItem: FC<CosmeticItemProps> = ({ cosmetic }) => {
           </p>
         </div>
 
-        <div className={styles.actions}>
+        {/* <div className={styles.actions}>
           <button>Add to Wishlist</button>
-        </div>
+        </div> */}
       </div>
 
       <div className={styles.info}>
@@ -55,7 +55,7 @@ const CosmeticItem: FC<CosmeticItemProps> = ({ cosmetic }) => {
 
           <ItemHistory
             name={cosmetic.name}
-            added={cosmetic.added}
+            added={cosmetic.added.date}
             shopHistory={cosmetic.shopHistory}
           />
         </div>

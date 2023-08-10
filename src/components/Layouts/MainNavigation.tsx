@@ -45,7 +45,7 @@ const MainNavigation = () => {
           </li>
           <li>
             <NavLink
-              to="/latest-cosmetics"
+              to="/cosmetics"
               className={({ isActive }) =>
                 isActive ? styles.active : styles.navLink
               }

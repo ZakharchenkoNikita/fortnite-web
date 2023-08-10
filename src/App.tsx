@@ -3,6 +3,7 @@ import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import RootLayout from "./pages/Root";
 import HomePage from "./pages/Home";
 import ErrorPage from "./pages/ErrorPage";
+import CosmeticsPage, { loader as allCosmeticsLoader } from "./pages/Cosmetics";
 import LatestCosmeticsPage, {
   loader as cosmeticsLoader,
 } from "./pages/LatestCosmetics";
@@ -26,8 +27,8 @@ const router = createBrowserRouter([
       },
       {
         path: "cosmetics",
-        element: <LatestCosmeticsPage />,
-        loader: cosmeticsLoader,
+        element: <CosmeticsPage />,
+        loader: allCosmeticsLoader,
       },
       {
         path: "cosmetics/:cosmeticId",

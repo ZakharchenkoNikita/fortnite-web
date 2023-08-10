@@ -22,12 +22,18 @@ const NewCosmetics = () => {
 export default NewCosmetics;
 
 async function loadCosmetics() {
-  const url = `${process.env.REACT_APP_API_LOAD_NEW_COSMETICS}`;
-  const response = await fetch(url);
+  const url = `https://fortniteapi.io/v2/items/upcoming?lang=en`;
+  const response = await fetch(url, {
+    headers: {
+      Authorization: "8bfc7bf4-1f706d02-7e698a1e-59b90c83",
+    },
+  });
 
   if (response.ok) {
     const resData = await response.json();
-    return resData.data.items;
+    console.log(resData);
+
+    return resData.items;
   } else {
     throw json(
       { message: "Could not fetch cosmetics." },

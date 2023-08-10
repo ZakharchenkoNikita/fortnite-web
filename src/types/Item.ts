@@ -8,14 +8,17 @@ export interface Item {
     featured: string;
   };
   type: {
-    displayValue: string;
+    id: string;
     value: string;
   };
   rarity: {
     value: string;
+    id: string;
     displayValue: string;
   };
-  added: string;
+  added: {
+    date: string;
+  };
   series: {
     value: string;
     image: string;
@@ -25,21 +28,15 @@ export interface Item {
     season: string;
     text: string;
   };
-  variants: {
-    channel: string;
-    type: string;
-    options: [
-      {
-        tag: string;
-        name: string;
-        image: string;
-      }
-    ];
-  };
+  styles: [
+    {
+      name: string;
+      image: string;
+    }
+  ];
   shopHistory: string[];
   gameplayTags: string[];
 }
-
 
 export interface ShopItem {
   id: string;

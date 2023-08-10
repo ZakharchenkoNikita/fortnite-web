@@ -21,6 +21,7 @@ body {
   background-color: #212529;
 }
 
+.Icon,
 .icon {
   background: url("./assets/img/CreatorCollabSeries.a438429c.png");
   background-position: 50%;
@@ -28,6 +29,7 @@ body {
   border: 1px solid #1be2e5;
 }
 
+.Gaminglegends,
 .gaminglegends {
   background: url("./assets/img//GamingLegends.797a8bc8.png");
   background-position: 50%;
@@ -35,6 +37,7 @@ body {
   border: 1px solid #9775fa;
 }
 
+.Lava,
 .lava {
   background: url("./assets/img/Lava_Series_Rarity_Locker_Texture.webp");
   background-position: 50%;
@@ -42,6 +45,7 @@ body {
   border: 1px solid #f68b20;
 }
 
+.Starwars,
 .starwars {
   background: url("./assets//img//ColumbusSeries.9993eea7.png");
   background-position: 50%;
@@ -49,21 +53,25 @@ body {
   border: 1px solid #ffaf00;
 }
 
+.Legendary,
 .legendary {
   background: radial-gradient(circle, #ff960e, #851400);
   border: 1px solid #f68b20;
 }
 
+.Epic,
 .epic {
   background: radial-gradient(circle, #9d19ff, #4c07a6);
   border: 1px solid #845ef7;
 }
 
+.Rare,
 .rare {
   background: radial-gradient(circle, #2cc0ff, #143877);
   border: 1px solid #339af0;
 }
 
+.Uncommon,
 .uncommon {
   background: radial-gradient(circle, #30ce00, #005800);
   border: 1px solid #51cf66;
