@@ -3,18 +3,14 @@ import { Item } from "./Item";
 export interface Shop {
   date: string;
   vbuckIcon: string;
-  featured: {
-    name: string;
-    entries: Entries[];
-  };
-  daily: {
-    name: string;
-    entries: Entries[];
-  };
-  specialFeatured: {
-    name: string;
-    entries: Entries[];
-  };
+  featured: ShopTypeData;
+  daily: ShopTypeData;
+  specialFeatured: ShopTypeData;
+}
+
+export interface ShopTypeData {
+  name: string;
+  entries: Entries[];
 }
 
 export interface Entries {

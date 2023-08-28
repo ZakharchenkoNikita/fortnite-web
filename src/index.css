@@ -21,6 +21,14 @@ body {
   background-color: #212529;
 }
 
+.Marvel,
+.marvel {
+  background: url("./assets/img/MarvelSeries.31d10f98.png");
+  background-position: 50%;
+  background-size: cover;
+  border: 1px solid #d80304;
+}
+
 .Icon,
 .icon {
   background: url("./assets/img/CreatorCollabSeries.a438429c.png");

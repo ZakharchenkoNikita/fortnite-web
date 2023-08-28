@@ -1,4 +1,4 @@
-import { Shop, Entries } from "../types/Shop";
+import { Shop, Entries, ShopTypeData } from "../types/Shop";
 import { ShopItem } from "../types/Item";
 
 const getItemData = (entry: Entries): ShopItem => {
@@ -50,10 +50,18 @@ const getShopEntries = (entries: Entries[]) => {
   return getArrayOfEntries(shopEntries);
 };
 
+const isNotNull = (shopType: ShopTypeData) => {
+  if (shopType === null) {
+    return [];
+  }
+
+  return getShopEntries(shopType.entries);
+};
+
 const joinShopEntries = (shop: Shop) => {
-  const featuredEntries = getShopEntries(shop.featured.entries);
-  const dailyEntries = getShopEntries(shop.daily.entries);
-  const specialFeatured = getShopEntries(shop.specialFeatured.entries);
+  const featuredEntries = isNotNull(shop.featured);
+  const dailyEntries = isNotNull(shop.daily);
+  const specialFeatured = isNotNull(shop.specialFeatured);
 
   return [...featuredEntries, ...dailyEntries, ...specialFeatured];
 };
