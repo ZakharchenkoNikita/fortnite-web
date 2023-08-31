@@ -1,9 +1,10 @@
-import { FC, Fragment } from "react";
+import { FC } from "react";
 import { Item } from "../../../types/Item";
 import styles from "./CosmeticItem.module.css";
 import ItemTags from "./ItemTags";
 import ItemHistory from "./ItemHistory";
 import ItemStyles from "./ItemStyles";
+import ItemDescription from "./ItemDescription";
 
 interface CosmeticItemProps {
   cosmetic: Item;
@@ -19,7 +20,7 @@ const CosmeticItem: FC<CosmeticItemProps> = ({ cosmetic }) => {
   }
 
   return (
-    <Fragment>
+    <>
       <div className={styles.cosmetic}>
         <div className={`${styles.card} ${cosmetic.rarity.id}`}>
           <img
@@ -27,25 +28,17 @@ const CosmeticItem: FC<CosmeticItemProps> = ({ cosmetic }) => {
             alt={cosmetic.name}
           />
         </div>
+
         <div className={styles.description}>
-          <h1>{cosmetic.name}</h1>
-          <strong>{cosmetic.id}</strong>
-
-          <div>
-            <span>{cosmetic.type.id}</span>
-            <strong>&#9679;</strong>
-            <span>{cosmetic.rarity.id}</span>
-          </div>
-
-          <p>
-            {cosmetic.description} <br />
-            {"" && cosmetic.introduction.text}
-          </p>
+          <ItemDescription
+            id={cosmetic.id}
+            name={cosmetic.name}
+            type={cosmetic.type.id}
+            rarity={cosmetic.rarity.id}
+            description={cosmetic.description}
+            introduction={cosmetic.introduction.text}
+          />
         </div>
-
-        {/* <div className={styles.actions}>
-          <button>Add to Wishlist</button>
-        </div> */}
       </div>
 
       <div className={styles.info}>
@@ -60,7 +53,7 @@ const CosmeticItem: FC<CosmeticItemProps> = ({ cosmetic }) => {
           />
         </div>
       </div>
-    </Fragment>
+    </>
   );
 };
 
