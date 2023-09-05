@@ -16,6 +16,10 @@
   cursor: pointer;
 }
 
+.select:hover {
+  box-shadow: 0 0 0 0.1rem #868e96;
+}
+
 .arrow {
   width: 1.2rem;
 }

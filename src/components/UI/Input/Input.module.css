@@ -1,0 +1,22 @@
+.input {
+  width: 100%;
+  padding: 1.2rem;
+  font-size: 1.2rem;
+  font-family: inherit;
+  color: inherit;
+  border: none;
+  background-color: #343a40;
+  border-radius: 0.8rem;
+  transition: all 0.3s;
+}
+
+.input::placeholder {
+  color: #868e96;
+  font-size: 1.2rem;
+}
+
+*:focus,
+.input:hover {
+  outline: none;
+  box-shadow: 0 0 0 0.1rem #868e96;
+}

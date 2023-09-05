@@ -1,6 +1,7 @@
 import { FC } from "react";
 import styles from "./CosmeticSort.module.css";
 import CustomSelect from "../../UI/Select/CustomSelect";
+import Input from "../../UI/Input/Input";
 
 const typeOptions = [
   { value: "all", title: "All" },
@@ -35,7 +36,12 @@ const CosmeticSort: FC<CosmeticSortProps> = ({
 }) => {
   return (
     <div className={styles.content}>
-      <input type="text" placeholder="Jonesy" onChange={inputOnChange} />
+      <Input
+        id="type"
+        type="text"
+        placeholder="Jonesy"
+        onChange={inputOnChange}
+      />
 
       <div className={styles.selects}>
         <CustomSelect
