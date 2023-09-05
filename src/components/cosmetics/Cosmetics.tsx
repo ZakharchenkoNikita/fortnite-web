@@ -7,6 +7,7 @@ import CosmeticCard from "./CosmeticCard";
 import CardTitle from "../home/card/CardTitle";
 import CosmeticSort from "./sorting/CosmeticSort";
 import cosmeticsFiltration from "../../helpers/cosmeticsFiltration";
+import NoResult from "../error/NoResult";
 
 interface CosmeticsProps {
   title: string;
@@ -69,28 +70,35 @@ const Cosmetics: FC<CosmeticsProps> = ({
         </div>
       )}
 
-      <div className={styles.content}>
-        {filteredCosmetics
-          // .sort((a, b) => {
-          //   return (
-          //     new Date(a.added.date).setHours(0, 0, 0, 0) -
-          //     new Date(b.added.date).setHours(0, 0, 0, 0)
-          //   );
-          // })
-          .slice(0, nextPage)
-          .filter((_, index) => index < numberOfItems)
-          .map((cosmetic: Item) => {
-            return (
-              <CosmeticCard
-                key={cosmetic.id}
-                id={cosmetic.id}
-                name={cosmetic.name}
-                icon={cosmetic.images.icon}
-                rarity={cosmetic.rarity.id}
-              />
-            );
-          })}
-      </div>
+      {filteredCosmetics.length > 0 ? (
+        <div className={styles.content}>
+          {filteredCosmetics
+            // .sort((a, b) => {
+            //   return (
+            //     new Date(a.added.date).setHours(0, 0, 0, 0) -
+            //     new Date(b.added.date).setHours(0, 0, 0, 0)
+            //   );
+            // })
+            .slice(0, nextPage)
+            .filter((_, index) => index < numberOfItems)
+            .map((cosmetic: Item) => {
+              return (
+                <CosmeticCard
+                  key={cosmetic.id}
+                  id={cosmetic.id}
+                  name={cosmetic.name}
+                  icon={cosmetic.images.icon}
+                  rarity={cosmetic.rarity.id}
+                />
+              );
+            })}
+        </div>
+      ) : (
+        <NoResult
+          title="No results"
+          message="Adjust your search and try again."
+        />
+      )}
 
       {location.pathname !== "/" && nextPage < filteredCosmetics.length && (
         <button onClick={pageHandler}>Show more</button>
