@@ -5,7 +5,8 @@ import styles from "./Cosmetics.module.css";
 import { Item } from "../../types/Item";
 import CosmeticCard from "./CosmeticCard";
 import CardTitle from "../home/card/CardTitle";
-import CosmeticSort from "./CosmeticSort";
+import CosmeticSort from "./sorting/CosmeticSort";
+import cosmeticsFiltration from "../../helpers/cosmeticsFiltration";
 
 interface CosmeticsProps {
   title: string;
@@ -15,9 +16,6 @@ interface CosmeticsProps {
 }
 
 const itemsPerPage = 36;
-
-let filteredCosmetics: Item[];
-let searchedCosmetics: Item[];
 
 const Cosmetics: FC<CosmeticsProps> = ({
   title,
@@ -29,7 +27,9 @@ const Cosmetics: FC<CosmeticsProps> = ({
 
   const [nextPage, setNextPage] = useState(itemsPerPage);
   const [inputText, setInputText] = useState("");
+
   const [inputTypeSelect, setInputTypeSelect] = useState("all");
+  const [inputRaritySelect, setInputRaritySelect] = useState("All");
 
   const pageHandler = () => {
     setNextPage(nextPage + itemsPerPage);
@@ -40,56 +40,43 @@ const Cosmetics: FC<CosmeticsProps> = ({
     setInputText(lowerCase);
   };
 
-  const selectTypeHandler = (event: React.ChangeEvent<HTMLSelectElement>) => {
-    setInputTypeSelect(event.target.value);
+  const selectTypeHandler = (selection: string) => {
+    setInputTypeSelect(selection);
   };
 
-  const selectTypeFromMenu = (type: string) => {
-    setInputTypeSelect(type);
+  const selectRarityHandler = (selection: string) => {
+    setInputRaritySelect(selection);
   };
 
-  filteredCosmetics = cosmetics.filter((item) => {
-    switch (inputTypeSelect) {
-      case "all":
-        return item;
-
-      case "outfit":
-        return item.type.id === "outfit";
-
-      case "backpack":
-        return item.type.id === "backpack";
-    }
-  });
-
-  searchedCosmetics = filteredCosmetics.filter((item) => {
-    if (inputText === "") {
-      return item;
-    }
-
-    return item.name.toLowerCase().includes(inputText);
+  const filteredCosmetics = cosmeticsFiltration(cosmetics, {
+    inputText,
+    inputTypeSelect,
+    inputRaritySelect,
   });
 
   return (
     <>
       {location.pathname !== "/" && (
-        <div style={{ position: "relative" }}>
+        <div>
           <CardTitle title={title} description={description} />
           <CosmeticSort
+            inputTypeSelect={inputTypeSelect}
+            inputRaritySelect={inputRaritySelect}
             inputOnChange={inputHandler}
             selectTypeOnChange={selectTypeHandler}
-            selectTypeFromMenu={selectTypeFromMenu}
+            selectRarityOnChange={selectRarityHandler}
           />
         </div>
       )}
 
       <div className={styles.content}>
-        {searchedCosmetics
-          .sort((a, b) => {
-            return (
-              new Date(a.added.date).setHours(0, 0, 0, 0) -
-              new Date(b.added.date).setHours(0, 0, 0, 0)
-            );
-          })
+        {filteredCosmetics
+          // .sort((a, b) => {
+          //   return (
+          //     new Date(a.added.date).setHours(0, 0, 0, 0) -
+          //     new Date(b.added.date).setHours(0, 0, 0, 0)
+          //   );
+          // })
           .slice(0, nextPage)
           .filter((_, index) => index < numberOfItems)
           .map((cosmetic: Item) => {
@@ -105,7 +92,7 @@ const Cosmetics: FC<CosmeticsProps> = ({
           })}
       </div>
 
-      {location.pathname !== "/" && nextPage < searchedCosmetics.length && (
+      {location.pathname !== "/" && nextPage < filteredCosmetics.length && (
         <button onClick={pageHandler}>Show more</button>
       )}
     </>

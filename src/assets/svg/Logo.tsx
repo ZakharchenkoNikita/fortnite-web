@@ -1,5 +1,6 @@
 import React from "react";
-const CreationProcess: React.FC<React.SVGProps<SVGSVGElement>> = ({
+
+const Logo: React.FC<React.SVGProps<SVGSVGElement>> = ({
   ...rest
 }) => {
   return (
@@ -16,4 +17,4 @@ const CreationProcess: React.FC<React.SVGProps<SVGSVGElement>> = ({
   );
 };
 
-export default CreationProcess;
+export default Logo;

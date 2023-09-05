@@ -1,5 +1,10 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
 
+:root {
+  --rarity-background-position: 50%;
+  --rarity-background-size: cover;
+}
+
 * {
   padding: 0;
   margin: 0;
@@ -21,43 +26,51 @@ body {
   background-color: #212529;
 }
 
+.Shadow,
+.shadow {
+  background: url("./assets/img/ShadowSeries.1f44b9dd.png");
+  background-position: var(--rarity-background-position);
+  background-size: var(--rarity-background-size);
+  border: 1px solid #fff;
+}
+
 .Marvel,
 .marvel {
   background: url("./assets/img/MarvelSeries.31d10f98.png");
-  background-position: 50%;
-  background-size: cover;
+  background-position: var(--rarity-background-position);
+  background-size: var(--rarity-background-size);
   border: 1px solid #d80304;
 }
 
 .Icon,
 .icon {
   background: url("./assets/img/CreatorCollabSeries.a438429c.png");
-  background-position: 50%;
-  background-size: cover;
+  background-position: var(--rarity-background-position);
+  background-size: var(--rarity-background-size);
   border: 1px solid #1be2e5;
 }
 
 .Gaminglegends,
 .gaminglegends {
   background: url("./assets/img//GamingLegends.797a8bc8.png");
-  background-position: 50%;
-  background-size: cover;
+  background-position: var(--rarity-background-position);
+  background-size: var(--rarity-background-size);
   border: 1px solid #9775fa;
 }
 
 .Lava,
 .lava {
   background: url("./assets/img/Lava_Series_Rarity_Locker_Texture.webp");
-  background-position: 50%;
-  background-size: cover;
+  background-position: var(--rarity-background-position);
+  background-size: var(--rarity-background-size);
   border: 1px solid #f68b20;
 }
 
 .Starwars,
 .starwars {
   background: url("./assets//img//ColumbusSeries.9993eea7.png");
-  background-position: 50%;
-  background-size: cover;
+  background-position: var(--rarity-background-position);
+  background-size: var(--rarity-background-size);
   border: 1px solid #ffaf00;
 }
 

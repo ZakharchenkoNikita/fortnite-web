@@ -1,6 +1,6 @@
 import { NavLink, Link } from "react-router-dom";
 import styles from "./MainNavigation.module.css";
-import Logo from "../../assets/Logo";
+import Logo from "../../assets/svg/Logo";
 
 const MainNavigation = () => {
   return (

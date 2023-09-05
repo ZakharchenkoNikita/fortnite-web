@@ -1,0 +1,11 @@
+.content {
+  display: flex;
+  gap: 0.8rem;
+  margin-bottom: 1.2rem;
+}
+
+.selects {
+  display: flex;
+  gap: 0.8rem;
+  width: 100%;
+}
