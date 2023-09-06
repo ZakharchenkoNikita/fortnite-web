@@ -39,11 +39,7 @@ const CustomSelect: FC<CustomSelectProps> = ({
         )}
       </button>
       {opened && (
-        <div
-          className={`${styles.options} ${
-            opened ? styles.active : styles.inactive
-          }`}
-        >
+        <div className={styles.options}>
           {options.map((option) => (
             <div
               className={styles.option}

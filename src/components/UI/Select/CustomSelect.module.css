@@ -4,9 +4,9 @@
 
 .select {
   display: inline-flex;
+  align-items: center;
   justify-content: space-between;
   gap: 0.8rem;
-  align-items: center;
   padding: 1.2rem;
   max-width: 100%;
   background-color: #343a40;
@@ -22,10 +22,6 @@
 
 .arrow {
   width: 1.2rem;
-}
-
-.select span {
-  font-size: 1.4rem;
 }
 
 .options {
@@ -47,6 +43,13 @@
   padding-right: 12rem;
   background: #212529;
   cursor: pointer;
+}
+
+.select span,
+.option span {
+  font-size: 1.4rem;
+  white-space: nowrap;
+  text-transform: capitalize;
 }
 
 .option:hover {

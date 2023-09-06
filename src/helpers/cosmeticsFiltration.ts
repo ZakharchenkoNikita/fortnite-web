@@ -2,6 +2,7 @@ import { Item } from "../types/Item";
 
 interface FiltrationParams {
   inputText: string;
+  inputSortBySelect: string;
   inputTypeSelect: string;
   inputRaritySelect: string;
 }

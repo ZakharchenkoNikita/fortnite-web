@@ -15,7 +15,7 @@
   font-size: 1.2rem;
 }
 
-*:focus,
+.input:focus,
 .input:hover {
   outline: none;
   box-shadow: 0 0 0 0.1rem #868e96;

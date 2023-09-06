@@ -3,6 +3,13 @@ import styles from "./CosmeticSort.module.css";
 import CustomSelect from "../../UI/Select/CustomSelect";
 import Input from "../../UI/Input/Input";
 
+const sortByOptions = [
+  { value: "newest first", title: "Newest First" },
+  { value: "oldest first", title: "Oldest First" },
+  { value: "A to Z", title: "A to Z" },
+  { value: "Z to A", title: "Z to A" },
+];
+
 const typeOptions = [
   { value: "all", title: "All" },
   { value: "outfit", title: "Outfit" },
@@ -19,18 +26,22 @@ const rarityOptions = [
 ];
 
 interface CosmeticSortProps {
+  inputSortBySelect: string;
   inputTypeSelect: string;
   inputRaritySelect: string;
 
   inputOnChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  selectSortByOnChange: (selection: string) => void;
   selectTypeOnChange: (selection: string) => void;
   selectRarityOnChange: (selection: string) => void;
 }
 
 const CosmeticSort: FC<CosmeticSortProps> = ({
+  inputSortBySelect,
   inputTypeSelect,
   inputRaritySelect,
   inputOnChange,
+  selectSortByOnChange,
   selectTypeOnChange,
   selectRarityOnChange,
 }) => {
@@ -44,6 +55,13 @@ const CosmeticSort: FC<CosmeticSortProps> = ({
       />
 
       <div className={styles.selects}>
+        <CustomSelect
+          typeTitle="Sort by"
+          selected={inputSortBySelect}
+          options={sortByOptions}
+          onChange={selectSortByOnChange}
+        />
+
         <CustomSelect
           typeTitle="Type"
           selected={inputTypeSelect}

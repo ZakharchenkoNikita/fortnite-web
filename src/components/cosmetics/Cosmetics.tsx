@@ -8,6 +8,7 @@ import CardTitle from "../home/card/CardTitle";
 import CosmeticSort from "./sorting/CosmeticSort";
 import cosmeticsFiltration from "../../helpers/cosmeticsFiltration";
 import NoResult from "../error/NoResult";
+import cosmeticsSorting from "../../helpers/cosmeticsSorting";
 
 interface CosmeticsProps {
   title: string;
@@ -29,6 +30,7 @@ const Cosmetics: FC<CosmeticsProps> = ({
   const [nextPage, setNextPage] = useState(itemsPerPage);
   const [inputText, setInputText] = useState("");
 
+  const [inputSortBySelect, setInputSortBySelect] = useState("newest first");
   const [inputTypeSelect, setInputTypeSelect] = useState("all");
   const [inputRaritySelect, setInputRaritySelect] = useState("All");
 
@@ -41,6 +43,10 @@ const Cosmetics: FC<CosmeticsProps> = ({
     setInputText(lowerCase);
   };
 
+  const selectSortByHandler = (selection: string) => {
+    setInputSortBySelect(selection);
+  };
+
   const selectTypeHandler = (selection: string) => {
     setInputTypeSelect(selection);
   };
@@ -51,9 +57,15 @@ const Cosmetics: FC<CosmeticsProps> = ({
 
   const filteredCosmetics = cosmeticsFiltration(cosmetics, {
     inputText,
+    inputSortBySelect,
     inputTypeSelect,
     inputRaritySelect,
   });
+
+  const sortedCosmetics = cosmeticsSorting(
+    filteredCosmetics,
+    inputSortBySelect
+  );
 
   return (
     <>
@@ -62,23 +74,19 @@ const Cosmetics: FC<CosmeticsProps> = ({
           <CardTitle title={title} description={description} />
           <CosmeticSort
             inputTypeSelect={inputTypeSelect}
+            inputSortBySelect={inputSortBySelect}
             inputRaritySelect={inputRaritySelect}
             inputOnChange={inputHandler}
             selectTypeOnChange={selectTypeHandler}
             selectRarityOnChange={selectRarityHandler}
+            selectSortByOnChange={selectSortByHandler}
           />
         </div>
       )}
 
-      {filteredCosmetics.length > 0 ? (
+      {sortedCosmetics.length > 0 ? (
         <div className={styles.content}>
-          {filteredCosmetics
-            // .sort((a, b) => {
-            //   return (
-            //     new Date(a.added.date).setHours(0, 0, 0, 0) -
-            //     new Date(b.added.date).setHours(0, 0, 0, 0)
-            //   );
-            // })
+          {sortedCosmetics
             .slice(0, nextPage)
             .filter((_, index) => index < numberOfItems)
             .map((cosmetic: Item) => {
@@ -100,7 +108,7 @@ const Cosmetics: FC<CosmeticsProps> = ({
         />
       )}
 
-      {location.pathname !== "/" && nextPage < filteredCosmetics.length && (
+      {location.pathname !== "/" && nextPage < sortedCosmetics.length && (
         <button onClick={pageHandler}>Show more</button>
       )}
     </>
