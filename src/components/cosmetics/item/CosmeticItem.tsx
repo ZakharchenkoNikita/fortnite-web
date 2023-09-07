@@ -36,7 +36,7 @@ const CosmeticItem: FC<CosmeticItemProps> = ({ cosmetic }) => {
             type={cosmetic.type.id}
             rarity={cosmetic.rarity.id}
             description={cosmetic.description}
-            introduction={cosmetic.introduction.text}
+            introduction={"" && cosmetic.introduction.text}
           />
         </div>
       </div>

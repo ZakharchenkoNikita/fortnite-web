@@ -20,8 +20,8 @@ const CosmeticCard: FC<CosmeticProps> = ({
   finalPrice,
 }) => {
   return (
-    <div className={`${styles.card} ${rarity}`}>
-      <Link to={`/cosmetics/${id}`}>
+    <Link to={`/cosmetics/${id}`}>
+      <div className={`${styles.card} ${rarity}`}>
         <img src={icon} alt={name} />
         <div className={styles.description}>
           <span>{name}</span>
@@ -32,8 +32,8 @@ const CosmeticCard: FC<CosmeticProps> = ({
             </div>
           )}
         </div>
-      </Link>
-    </div>
+      </div>
+    </Link>
   );
 };
 
