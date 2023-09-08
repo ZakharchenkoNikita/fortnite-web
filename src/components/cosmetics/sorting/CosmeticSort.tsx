@@ -20,9 +20,13 @@ const typeOptions = [
 
 const rarityOptions = [
   { value: "All", title: "All" },
+  { value: "Common", title: "Common" },
+  { value: "Uncommon", title: "Uncommon" },
+  { value: "Epic", title: "Epic" },
   { value: "Legendary", title: "Legendary" },
   { value: "Rare", title: "Rare" },
-  { value: "Epic", title: "Epic" },
+  { value: "Mythic", title: "Mythic" },
+  { value: "Transcendent", title: "Transcendent" },
 ];
 
 interface CosmeticSortProps {

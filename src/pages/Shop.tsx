@@ -1,4 +1,4 @@
-import { Await, defer, useLoaderData, json } from "react-router-dom";
+import { Await, defer, useLoaderData } from "react-router-dom";
 import { Suspense } from "react";
 import { makeHttpRequest, RequestConfig } from "../helpers/makeHttpRequest";
 import { ShopResult } from "../types/RequestResults";
