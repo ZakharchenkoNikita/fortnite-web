@@ -1,9 +1,9 @@
 import { FC } from "react";
 
-import Tabs from "./UI/Tabs/Tabs";
-import Tab from "./UI/Tabs/Tab";
+import Tabs from "../UI/Tabs/Tabs";
+import Tab from "../UI/Tabs/Tab";
 
-import { News } from "../types/News";
+import { News } from "../../types/News";
 import NewsTab from "./NewsTab";
 
 interface InGameNewsProps {

@@ -4,7 +4,7 @@ import LatestCosmetics from "../cosmetics/latest/LatestCosmetics";
 
 import { Item } from "../../types/Item";
 import { News } from "../../types/News";
-import InGameNews from "../InGameNews";
+import InGameNews from "../news/InGameNews";
 
 interface HomeProps {
   cosmetics: Item[];
