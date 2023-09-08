@@ -7,7 +7,7 @@ const Error = () => {
   let title = "An error occurred!";
   let message = "Sorry, an unexpected error has occurred.";
 
-  if (error.status === 400) {
+  if (error.status === 200) {
     title = "Not found!";
     message = error.data.message;
   }

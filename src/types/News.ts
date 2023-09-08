@@ -7,3 +7,9 @@ export interface News {
   tileImage: string;
   sortingPriority: number;
 }
+
+export interface NewsData {
+  br: {
+    motds: News[];
+  };
+}

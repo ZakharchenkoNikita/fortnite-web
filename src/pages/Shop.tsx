@@ -1,5 +1,7 @@
 import { Await, defer, useLoaderData, json } from "react-router-dom";
 import { Suspense } from "react";
+import { makeHttpRequest, RequestConfig } from "../helpers/makeHttpRequest";
+import { ShopResult } from "../types/RequestResults";
 
 import ItemShop from "../components/shop/ItemShop";
 
@@ -18,18 +20,17 @@ const ShopPage = () => {
 export default ShopPage;
 
 const loadItemShop = async () => {
-  const response = await fetch("https://fortnite-api.com/v2/shop/br");
+  const url = "https://fortnite-api.com/v2/shop/br";
 
-  if (response.ok) {
-    const resData = await response.json();
-    return resData.data;
-  } else {
-    throw json(
-      { message: "Could not fetch shop items." },
-      {
-        status: 400,
-      }
-    );
+  const config: RequestConfig = {
+    url,
+  };
+
+  try {
+    const response = await makeHttpRequest<ShopResult>(config);
+    return response.data;
+  } catch (error) {
+    console.log(error);
   }
 };
 

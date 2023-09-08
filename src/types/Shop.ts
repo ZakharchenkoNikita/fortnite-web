@@ -1,6 +1,7 @@
 import { Item } from "./Item";
 
 export interface Shop {
+  hash: string;
   date: string;
   vbuckIcon: string;
   featured: ShopTypeData;
