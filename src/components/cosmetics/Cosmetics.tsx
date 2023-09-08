@@ -1,5 +1,6 @@
 import React, { FC, useState } from "react";
 import { useLocation } from "react-router-dom";
+import useInfiniteScroll from "../../hooks/useInfiniteScroll";
 
 import styles from "./Cosmetics.module.css";
 import { Item } from "../../types/Item";
@@ -27,16 +28,12 @@ const Cosmetics: FC<CosmeticsProps> = ({
 }) => {
   const location = useLocation();
 
-  const [nextPage, setNextPage] = useState(itemsPerPage);
-  const [inputText, setInputText] = useState("");
+  const { nextPage, pageHandler } = useInfiniteScroll(itemsPerPage);
 
+  const [inputText, setInputText] = useState("");
   const [inputSortBySelect, setInputSortBySelect] = useState("newest first");
   const [inputTypeSelect, setInputTypeSelect] = useState("all");
   const [inputRaritySelect, setInputRaritySelect] = useState("All");
-
-  const pageHandler = () => {
-    setNextPage(nextPage + itemsPerPage);
-  };
 
   const inputHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
     const lowerCase = event.target.value.toLocaleLowerCase();
@@ -66,6 +63,8 @@ const Cosmetics: FC<CosmeticsProps> = ({
     filteredCosmetics,
     inputSortBySelect
   );
+
+  window.addEventListener("scroll", pageHandler);
 
   return (
     <>
@@ -106,10 +105,6 @@ const Cosmetics: FC<CosmeticsProps> = ({
           title="No results"
           message="Adjust your search and try again."
         />
-      )}
-
-      {location.pathname !== "/" && nextPage < sortedCosmetics.length && (
-        <button onClick={pageHandler}>Show more</button>
       )}
     </>
   );
