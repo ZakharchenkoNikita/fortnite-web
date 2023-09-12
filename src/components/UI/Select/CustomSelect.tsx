@@ -6,7 +6,7 @@ import ChevronDown from "../../../assets/svg/ChevronDown";
 
 import useClickOutside from "../../../hooks/useClickOutside";
 
-interface Option {
+export interface Option {
   value: string;
   title: string;
 }
@@ -40,10 +40,10 @@ const CustomSelect: FC<CustomSelectProps> = ({
       </button>
       {opened && (
         <div className={styles.options}>
-          {options.map((option) => (
+          {options.map((option, index) => (
             <div
               className={styles.option}
-              key={option.value}
+              key={index}
               onClick={() => {
                 onChange(option.value);
                 setOpened(false);

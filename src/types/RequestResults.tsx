@@ -1,6 +1,7 @@
 import { Item } from "./Item";
 import { Shop } from "./Shop";
 import { NewsData } from "./News";
+import { Map } from "./Map";
 
 export interface CosmeticDetailsResult {
   result: boolean;
@@ -18,4 +19,9 @@ export interface ShopResult {
 
 export interface NewsResult {
   data: NewsData;
+}
+
+export interface MapResult {
+  result: boolean;
+  maps: Map[];
 }

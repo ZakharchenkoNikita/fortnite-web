@@ -1,0 +1,57 @@
+.comparison-item img {
+  width: 100%;
+  height: auto;
+  vertical-align: middle;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
+  pointer-events: none;
+}
+
+.comparison-slider {
+  margin: 5rem auto;
+  max-width: 100rem;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 1.5rem 1.5rem rgb(0 0 0 / 25%);
+  transition: all 0.3s;
+}
+
+.comparison-item {
+  overflow: hidden;
+}
+
+.comparison-item.top {
+  z-index: 1;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+}
+
+.comparison-item.top img {
+  height: 100%;
+  object-fit: cover;
+}
+
+.handle {
+  position: absolute;
+  width: 0.4rem;
+  height: 100%;
+  background: #343a40;
+  z-index: 3;
+  cursor: col-resize;
+  top: 0;
+}
+
+.svg {
+  display: block;
+  position: absolute;
+  top: calc(50% - 2rem);
+  right: calc(50% - 2rem);
+  height: 4rem;
+  width: 4rem;
+  background: #343a40;
+  border-radius: 8px;
+  padding: 2px;
+}
